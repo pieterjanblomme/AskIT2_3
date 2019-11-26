@@ -1,0 +1,72 @@
+﻿<Window x:Class="ASKITbyBDK_v2.S4_1_FV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ASKITbyBDK_v2"
+        mc:Ignorable="d"
+        Title="S4_1_FV" Height="350" Width="500" 
+        Background="{x:Null}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    
+    <Grid Height="350" VerticalAlignment="Top">
+        <Rectangle Height="100" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#233084"/>
+                    <GradientStop Color="#233083" Offset="1"/>
+                    <GradientStop Color="#233084" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBox Text="ASK.IT by BDK" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30" Foreground="#F6DD4F" FontSize="14"/>
+
+        <Rectangle Height="250" VerticalAlignment="Bottom">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="White" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Width="300" Height="150" Fill="#F6DD4F" VerticalAlignment="Top" Margin="100,139,100,0" RadiusY="18.667" RadiusX="18.667">
+            <Rectangle.Effect>
+                <DropShadowEffect Direction="0" BlurRadius="10"/>
+            </Rectangle.Effect>
+        </Rectangle>
+
+        <Grid Width="280" Height="150" VerticalAlignment="Top" Margin="119,140,101,0">
+            <TextBlock Name="txt_S4_1_titel" Text="Fietsvergoeding" HorizontalAlignment="Center" VerticalAlignment="top" Margin="10" Foreground="#233084"/>
+            
+            <TextBlock Name="txt_S4_1_aantalkm" Text="Aantal km*: " HorizontalAlignment="Left" VerticalAlignment="top" Margin="0,40,0,0" Foreground="Black"/>
+            <TextBox Name="txtbx_S4_1_aantalkm" Text="Vul in" HorizontalAlignment="Left" Height="23" Margin="100,35,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontStyle="Italic" FontSize="10"/>
+            
+            <TextBlock Name="txt_S4_1_aantal" Text="Aantal**: " HorizontalAlignment="Left" VerticalAlignment="top" Margin="0,70,0,0" Foreground="Black"/>
+            <TextBox Name="txtbx_S4_1_aantal" Text="Vul in" HorizontalAlignment="Left" Height="23" Margin="100,65,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontStyle="Italic" FontSize="10"/>
+            
+            <TextBlock Name="txt_S4_1_maand" Text="Maand: " HorizontalAlignment="Left" VerticalAlignment="top" Margin="0,100,0,0" Foreground="Black"/>
+
+            <ComboBox Name="cmbbx_S4_1_maand" Height="28" Text="maand" Width="100" HorizontalAlignment="Left" VerticalAlignment="top" Margin="100,90,0,0" Background="#FFF6DD4F">
+                <ComboBoxItem Content="januari 2020"/>
+                <ComboBoxItem Content="februari 2020"/>
+                <ComboBoxItem Content="maart 2020"/>
+                <ComboBoxItem Content="april 2020"/>
+                <ComboBoxItem Content="mei 2020"/>
+                <ComboBoxItem Content="juni 2020"/>
+                <ComboBoxItem Content="juli 2020"/>
+                <ComboBoxItem Content="augustus 2020"/>
+                <ComboBoxItem Content="september 2020"/>
+                <ComboBoxItem Content="oktober 2020"/>
+                <ComboBoxItem Content="november 2020"/>
+                <ComboBoxItem Content="december 2020"/>
+            </ComboBox>
+
+        </Grid>
+        <Button x:Name="btn_s4_1_doorgaan" Background="#FF233084" Content="Doorgaan" Width="150" Height="25" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,50" Click="Btn_s4_1_doorgaan_Click"/>
+        <TextBlock Name="txt_S4_1_uitleg" Text="* Hoeveel km leg ik af voor één woon-werkverplaatsing of een deel ervan ? (heen en terug)" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,25" Foreground="#233084" FontSize="10"/>
+        <TextBlock Name="txt_S4_1_uitleg2" Text="** Hoeveel keer deed ik de woon-werkverplaatsing of een deel ervan tijdens de hieronder vermelde maand?" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,10" Foreground="#233084" FontSize="10"/>
+        
+    </Grid>
+</Window>

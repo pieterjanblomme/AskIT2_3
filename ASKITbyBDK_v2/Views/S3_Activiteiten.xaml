@@ -1,0 +1,50 @@
+﻿<Window x:Class="ASKITbyBDK_v2.S3_Activiteiten"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ASKITbyBDK_v2"
+        mc:Ignorable="d"
+        Title="S3_Activiteiten"  Height="350" Width="500
+        " Background="{x:Null}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    
+    <Grid Height="350" VerticalAlignment="Top">
+        <Rectangle Height="100" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#233084"/>
+                    <GradientStop Color="#233083" Offset="1"/>
+                    <GradientStop Color="#233084" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBox Text="ASK.IT by BDK" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30" Foreground="#F6DD4F" FontSize="14"/>
+
+        <Rectangle Height="250" VerticalAlignment="Bottom">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="White" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Width="150" Height="50" Fill="#F6DD4F" VerticalAlignment="Top" Margin="100,120,100,0" RadiusY="18.667" RadiusX="18.667">
+            <Rectangle.Effect>
+                <DropShadowEffect Direction="0" BlurRadius="10"/>
+            </Rectangle.Effect>
+        </Rectangle>
+
+        <TextBlock Name="txt_S3_titel" Text="Activiteit" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="135" Foreground="#233084"/>
+
+        <Grid Width="400" Height="150" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="53,200,47,0" >
+            <Button x:Name="btn_s3_fiets" Background="#FF233084" Content="Fietsvergoeding" Width="150" Height="50" VerticalAlignment="Top" HorizontalAlignment="left" Margin="0,0,0,0" Click="Btn_s3_fiets_Click"/>
+            <Button x:Name="btn_s3_TAOH" Background="#FF233084" Content="TAOH" Width="150" Height="50" VerticalAlignment="Top" HorizontalAlignment="left" Margin="240,0,0,0"/>
+            <Button x:Name="btn_s3_OV" Background="#FF233084" Content="Openbaar vervoer" Width="150" Height="50" VerticalAlignment="Top" HorizontalAlignment="left" Margin="0,80,0,0"/>
+            <Button x:Name="btn_s3_wagen" Background="#FF233084" Content="Vergoeding wagen" Width="150" Height="50" VerticalAlignment="Top" HorizontalAlignment="left" Margin="240,80,0,0"/>
+        </Grid>
+
+    </Grid>
+</Window>

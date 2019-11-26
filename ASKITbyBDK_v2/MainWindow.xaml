@@ -1,0 +1,43 @@
+﻿<Window x:Class="ASKITbyBDK_v2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ASKITbyBDK_v2"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Login" Height="500" Width="350
+        " Background="{x:Null}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        
+
+        <Rectangle Height="500" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#233084"/>
+                    <GradientStop Color="#233083" Offset="1"/>
+                    <GradientStop Color="#233084" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+
+        <Image Source="Assests/logo.jpg" Width="150" Height="100" VerticalAlignment="Top" Margin="20"/>
+        <Rectangle Width="280" Height="240" Fill="#F6DD4F" VerticalAlignment="Bottom" Margin="0,100" RadiusY="18.667" RadiusX="18.667">
+            <Rectangle.Effect>
+                <DropShadowEffect Direction="0" BlurRadius="10"/>
+            </Rectangle.Effect>
+        </Rectangle>
+        <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100">
+            <TextBox Text="Login" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18"/>
+            <StackPanel VerticalAlignment="Center" Margin="10">
+                <TextBox materialDesign:HintAssist.Hint= "Gebruikersnaam SGVW" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0,10"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Paswoord SGVW" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0,10"/>
+            </StackPanel>
+        </Grid>
+        
+        <Button x:Name="btn_s1_login" VerticalAlignment="Bottom" Margin="100,0,100,90" Width="150" Content="LOGIN" Background="#FF233084" Click="Button_Click"/>
+        <TextBox Text="ASK.IT by BDK" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20" Foreground="#F6DD4F"/>
+
+    </Grid>
+</Window>

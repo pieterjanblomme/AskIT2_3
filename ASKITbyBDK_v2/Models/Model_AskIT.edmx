@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AskITModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Table_Gebruikers">
+          <Key>
+            <PropertyRef Name="GebruikersID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GebruikersID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RolCode" Type="varchar" MaxLength="50" />
+          <Property Name="Naam" Type="varchar" MaxLength="50" />
+          <Property Name="Voornaam" Type="varchar" MaxLength="50" />
+          <Property Name="Adres" Type="varchar" MaxLength="50" />
+          <Property Name="Postcode" Type="varchar" MaxLength="50" />
+          <Property Name="IBAN" Type="varchar" MaxLength="50" />
+          <Property Name="Stamboeknummer" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Gemeentes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Postcode" Type="varchar" MaxLength="50" />
+          <Property Name="Hoofdgemeente" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AskIT.dbo.Table_Maanden' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Table_Maanden">
+          <Key>
+            <PropertyRef Name="MaandCode" />
+            <PropertyRef Name="MaandNaam" />
+          </Key>
+          <Property Name="MaandCode" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="MaandNaam" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Rollen">
+          <Key>
+            <PropertyRef Name="RolCode" />
+          </Key>
+          <Property Name="RolCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RolName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AskIT.dbo.Table_Scholen' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Table_Scholen">
+          <Key>
+            <PropertyRef Name="SchoolCode" />
+            <PropertyRef Name="SchoolNaam" />
+          </Key>
+          <Property Name="SchoolCode" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="SchoolNaam" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Vergoedingen">
+          <Key>
+            <PropertyRef Name="VergoedingCode" />
+          </Key>
+          <Property Name="VergoedingCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VergoedingNaam" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Wachtwoorden">
+          <Key>
+            <PropertyRef Name="Gebruikersnaam" />
+          </Key>
+          <Property Name="Gebruikersnaam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Wachtwoord" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AskITModelStoreContainer">
+          <EntitySet Name="Table_Gebruikers" EntityType="Self.Table_Gebruikers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Gemeentes" EntityType="Self.Table_Gemeentes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Rollen" EntityType="Self.Table_Rollen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Vergoedingen" EntityType="Self.Table_Vergoedingen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Wachtwoorden" EntityType="Self.Table_Wachtwoorden" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Maanden" EntityType="Self.Table_Maanden" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Table_Maanden].[MaandCode] AS [MaandCode], 
+[Table_Maanden].[MaandNaam] AS [MaandNaam]
+FROM [dbo].[Table_Maanden] AS [Table_Maanden]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Table_Scholen" EntityType="Self.Table_Scholen" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Table_Scholen].[SchoolCode] AS [SchoolCode], 
+[Table_Scholen].[SchoolNaam] AS [SchoolNaam]
+FROM [dbo].[Table_Scholen] AS [Table_Scholen]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AskITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Table_Rollen">
+          <Key>
+            <PropertyRef Name="RolCode" />
+          </Key>
+          <Property Name="RolCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RolName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Vergoedingen">
+          <Key>
+            <PropertyRef Name="VergoedingCode" />
+          </Key>
+          <Property Name="VergoedingCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VergoedingNaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Wachtwoorden">
+          <Key>
+            <PropertyRef Name="Gebruikersnaam" />
+          </Key>
+          <Property Name="Gebruikersnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Wachtwoord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Maanden">
+          <Key>
+            <PropertyRef Name="MaandCode" />
+            <PropertyRef Name="MaandNaam" />
+          </Key>
+          <Property Name="MaandCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaandNaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Scholen">
+          <Key>
+            <PropertyRef Name="SchoolCode" />
+            <PropertyRef Name="SchoolNaam" />
+          </Key>
+          <Property Name="SchoolCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SchoolNaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AskITEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Table_Rollen" EntityType="Self.Table_Rollen" />
+          <EntitySet Name="Table_Vergoedingen" EntityType="Self.Table_Vergoedingen" />
+          <EntitySet Name="Table_Wachtwoorden" EntityType="Self.Table_Wachtwoorden" />
+          <EntitySet Name="Table_Maanden" EntityType="Self.Table_Maanden" />
+          <EntitySet Name="Table_Scholen" EntityType="Self.Table_Scholen" />
+          <EntitySet Name="Table_Gebruikers" EntityType="AskITModel.Table_Gebruikers" />
+          <EntitySet Name="Table_Gemeentes" EntityType="AskITModel.Table_Gemeentes" />
+        </EntityContainer>
+        <EntityType Name="Table_Gebruikers">
+          <Key>
+            <PropertyRef Name="GebruikersID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GebruikersID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RolCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Voornaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IBAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Stamboeknummer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Table_Gemeentes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Postcode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Hoofdgemeente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AskITModelStoreContainer" CdmEntityContainer="AskITEntities1">
+          <EntitySetMapping Name="Table_Rollen">
+            <EntityTypeMapping TypeName="AskITModel.Table_Rollen">
+              <MappingFragment StoreEntitySet="Table_Rollen">
+                <ScalarProperty Name="RolCode" ColumnName="RolCode" />
+                <ScalarProperty Name="RolName" ColumnName="RolName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Vergoedingen">
+            <EntityTypeMapping TypeName="AskITModel.Table_Vergoedingen">
+              <MappingFragment StoreEntitySet="Table_Vergoedingen">
+                <ScalarProperty Name="VergoedingCode" ColumnName="VergoedingCode" />
+                <ScalarProperty Name="VergoedingNaam" ColumnName="VergoedingNaam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Wachtwoorden">
+            <EntityTypeMapping TypeName="AskITModel.Table_Wachtwoorden">
+              <MappingFragment StoreEntitySet="Table_Wachtwoorden">
+                <ScalarProperty Name="Gebruikersnaam" ColumnName="Gebruikersnaam" />
+                <ScalarProperty Name="Wachtwoord" ColumnName="Wachtwoord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Maanden">
+            <EntityTypeMapping TypeName="AskITModel.Table_Maanden">
+              <MappingFragment StoreEntitySet="Table_Maanden">
+                <ScalarProperty Name="MaandCode" ColumnName="MaandCode" />
+                <ScalarProperty Name="MaandNaam" ColumnName="MaandNaam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Scholen">
+            <EntityTypeMapping TypeName="AskITModel.Table_Scholen">
+              <MappingFragment StoreEntitySet="Table_Scholen">
+                <ScalarProperty Name="SchoolCode" ColumnName="SchoolCode" />
+                <ScalarProperty Name="SchoolNaam" ColumnName="SchoolNaam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Gebruikers">
+            <EntityTypeMapping TypeName="AskITModel.Table_Gebruikers">
+              <MappingFragment StoreEntitySet="Table_Gebruikers">
+                <ScalarProperty Name="Stamboeknummer" ColumnName="Stamboeknummer" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="RolCode" ColumnName="RolCode" />
+                <ScalarProperty Name="GebruikersID" ColumnName="GebruikersID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Gemeentes">
+            <EntityTypeMapping TypeName="AskITModel.Table_Gemeentes">
+              <MappingFragment StoreEntitySet="Table_Gemeentes">
+                <ScalarProperty Name="Hoofdgemeente" ColumnName="Hoofdgemeente" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

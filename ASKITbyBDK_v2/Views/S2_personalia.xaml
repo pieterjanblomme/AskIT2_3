@@ -1,0 +1,82 @@
+﻿<Window x:Class="ASKITbyBDK_v2.S2_personalia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ASKITbyBDK_v2"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="S2_personalia" Height="350" Width="500
+        " Background="{x:Null}" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+
+    <Grid Height="350" VerticalAlignment="Top">
+        <Rectangle Height="100" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#233084"/>
+                    <GradientStop Color="#233083" Offset="1"/>
+                    <GradientStop Color="#233084" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <TextBox Text="ASK.IT by BDK" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="30" Foreground="#F6DD4F" FontSize="14"/>
+
+        <Rectangle Height="250" VerticalAlignment="Bottom">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White"/>
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="White" Offset="0.5"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle Width="300" Height="150" Fill="#F6DD4F" VerticalAlignment="Top" Margin="100,139,100,0" RadiusY="18.667" RadiusX="18.667">
+            <Rectangle.Effect>
+                <DropShadowEffect Direction="0" BlurRadius="10"/>
+            </Rectangle.Effect>
+        </Rectangle>
+
+     <!--   <Grid Width="280" Height="150" VerticalAlignment="Top" Margin="119,150,101,0">
+            <TextBlock Name="txt_S2_naam" Text="Pieterjan Blomme" HorizontalAlignment="Left" VerticalAlignment="top" Margin="20" Foreground="#233084"/>
+            <TextBlock Name="txt_S2_adres" Text="Alfons van Heestraat 47" Margin="131,20,-101,111" />
+            <TextBlock Name="txt_S2_pstcd" Text="8600" Margin="131,44,-101,77" />
+            <TextBlock Name="txt_S2_gmnt" Text="Beerst" Margin="171,44,-101,77" />
+            <TextBlock Name="txt_S2_rknr" Text="BE57 6528 3902 5935" Margin="131,68,-101,53" />
+            <TextBlock Name="txt_S2_stmbknr" Text="18512030169-000010" Margin="131,92,-101,29" />
+
+        </Grid>-->
+
+        <DataGrid Name="gebruikers"
+                  AutoGenerateColumns="False"
+                  Grid.Row="6"
+                  Grid.Column="1"
+                  Padding="3"
+                  ItemsSource="{Binding Path=GebruikersList}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Width="auto"
+                                    Binding="{Binding Path=ID}"/>
+                <DataGridTextColumn Header="GebruikersNaam"
+                                    Width="auto"
+                                    Binding="{Binding Path=Naam}"/>
+                <DataGridTextColumn Header="GebruikersVoorNaam"
+                                    Width="auto"
+                                    Binding="{Binding Path=Voornaam}"/>
+                <DataGridTextColumn Header="GebruikersAdres"
+                                    Width="auto"
+                                    Binding="{Binding Path=Adres}"/>
+            </DataGrid.Columns>
+            
+
+        </DataGrid>
+
+        <Button Content="Doorgaan" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Width="150" Margin="177,0,173,40" Background="#FF233084" Click="Button_Click"/>
+
+
+
+    </Grid>
+
+
+</Window>
